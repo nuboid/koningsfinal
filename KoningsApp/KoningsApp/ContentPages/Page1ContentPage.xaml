@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:KoningsApp.ViewModels;assembly=KoningsApp"
+             x:Class="KoningsApp.ContentPages.Page1ContentPage"
+             
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+
+             >
+    <d:ContentPage.BindingContext>
+        <viewModels:Page1ViewModel/>
+    </d:ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid VerticalOptions="Fill" RowDefinitions="60,60,60" ColumnDefinitions=".4*,.6*">
+                <Label Grid.Row="0" Grid.Column="0" Text="LastName"></Label>
+                <Label Grid.Row="1" Grid.Column="0" Text="FirstName"></Label>
+                <Label Grid.Row="2" Grid.Column="0" Text="Age"></Label>
+
+                <Entry Grid.Row="0" Grid.Column="1" Text="{Binding Model.LastName}"></Entry>
+                <Entry Grid.Row="1" Grid.Column="1" Text="{Binding Model.FirstName}"></Entry>
+                <Entry Grid.Row="2" Grid.Column="1" Text="{Binding Model.Age}"></Entry>
+            </Grid>
+            <Button Command="{Binding ValidateCommand}" Style="{StaticResource standardButtonStyle}" Text="Validate"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

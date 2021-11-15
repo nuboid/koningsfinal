@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KoningsApp.ContentPages.Page2ContentPage"
+             
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModels="clr-namespace:KoningsApp.ViewModels"
+             xmlns:fw="clr-namespace:KoningsApp.Fw;assembly=KoningsApp"
+             xmlns:forms="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             mc:Ignorable="d"
+             >
+
+    <d:ContentPage.BindingContext>
+        <viewModels:Page2ViewModel/>
+    </d:ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <fw:SelectedItemEventArgsToSelectedItemConverter x:Key="SelectedItemConverter" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+
+        <Grid RowDefinitions=".5*,.5*" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+      
+            <ListView Grid.Row="0" Margin="20" 
+                      ItemsSource="{Binding Model.Products}">
+                <ListView.Behaviors>
+                    <fw:EventToCommandBehavior 
+                    EventName="ItemSelected" 
+                    Command="{Binding ItemSelectedCommand}" Converter="{StaticResource SelectedItemConverter}" />
+                </ListView.Behaviors>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid ColumnDefinitions=".33*,.34*,.33*" >
+                                <Label TextColor="Red" Text="{Binding Id}" FontAttributes="Bold" />
+                                <Label Grid.Column="1" Text="{Binding Name}" />
+                                <Label Grid.Column="2" Text="{Binding Price}" 
+                                   HorizontalTextAlignment="End" />
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <StackLayout Grid.Row="1" 
+                         HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid>
+                    <Image Source="{Binding Model.SelectedImageSource}" BackgroundColor="Gray"></Image>
+                    <Label Text="{Binding Model.TextAboveImage}" TextColor="Black" HorizontalTextAlignment="Center" FontSize="40"  VerticalTextAlignment="Center"></Label>
+                </Grid>
+                <Button Text="Retake picture" Command="{Binding TappedOnImageCommand}"></Button>
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

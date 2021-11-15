@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KoningsApp.ContentViews.OkCancelContentView">
+  <ContentView.Content>
+      <StackLayout  Orientation="Horizontal" Spacing="5"  HeightRequest="45">
+            <Button Clicked="Button_OnClickedCancel" Text="Cancel" Style="{StaticResource standardButtonStyle}"></Button>
+            <Button Clicked="Button_OnClickedOk" Text="OK" Style="{StaticResource standardButtonStyle}"></Button>
+      </StackLayout>
+  </ContentView.Content>
+</ContentView>

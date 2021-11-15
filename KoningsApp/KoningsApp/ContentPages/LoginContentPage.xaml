@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:contentviews="clr-namespace:KoningsApp.ContentViews"
+             x:Class="KoningsApp.ContentPages.LoginContentPage">
+    <ContentPage.Content>
+        <StackLayout Margin="10">
+
+            <Image Margin="10,50,10,50"  Scale="0.9" Aspect="AspectFit" Source="logo.png"></Image>
+
+            <Label Text="Login" FontSize="23" TextColor="Black"/>
+         
+            <Grid VerticalOptions="Fill" RowDefinitions="60,60" ColumnDefinitions=".4*,.6*">
+                <Label Style="{StaticResource standardLabelStyle}" Grid.Row="0" Grid.Column="0"  Text="UserID:"></Label>
+                <Entry Grid.Row="0" Grid.Column="1" FontSize="21"></Entry>
+                <Label Style="{StaticResource standardLabelStyle}" Grid.Row="1" Grid.Column="0"  Text="Password:"></Label>
+                <Entry Grid.Row="1" Grid.Column="1" IsPassword="True" FontSize="21"></Entry>
+            </Grid>
+
+            <contentviews:OkCancelContentView 
+                ClickedCancel="OkCancelContentView_OnClickedCancel"
+                ClickedOK="OkCancelContentView_OnClickedOK"
+                VerticalOptions="EndAndExpand"/>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

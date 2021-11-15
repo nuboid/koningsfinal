@@ -1,0 +1,12 @@
+https://docs.microsoft.com/en-us/xamarin/xamarin-forms/user-interface/styles/
+https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/templates/data-templates/creating
+https://docs.microsoft.com/en-us/xamarin/xamarin-forms/app-fundamentals/dependency-service/introduction
+https://docs.microsoft.com/en-us/samples/xamarin/xamarin-forms-samples/behaviors-eventtocommandbehavior/
+https://docs.microsoft.com/en-us/xamarin/essentials/media-picker?tabs=android
+
+
+open ADB Command prompt in Visual Studion (knopje in balk bovenaan)
+adb reverse tcp:5000 tcp:5000
+
+
+
